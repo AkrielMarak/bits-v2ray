@@ -34,28 +34,28 @@ export async function GetPanel(request: Request, env: Env): Promise<Response> {
     var htmlMessage = ""
     const message = url.searchParams.get("message")
     if (message == "success") {
-      htmlMessage = `<div class="p-1 bg-success text-white fw-bold text-center">Pengaturan Berhasil Disimpan !!!</div>`
+      htmlMessage = `<div class="p-1 bg-success text-white fw-bold text-center">Settings Saved Successfully!!!</div>`
     } else if (message == "error") {
-      htmlMessage = `<div class="p-1 bg-danger text-white fw-bold text-center">Pengaturan Gagal Disimpan !!!</div>`
+      htmlMessage = `<div class="p-1 bg-danger text-white fw-bold text-center">Failed to Save Settings!!!</div>`
     }
 
     var passwordSection = ""
     if (hash) {
       passwordSection = `
       <div class="mb-3 p-1">
-        <button type="submit" name="reset_password" value="1" class="btn btn-danger">Hapus Password</button>
+        <button type="submit" name="reset_password" value="1" class="btn btn-danger">Delete Password</button>
       </div>
       `
     } else {
       passwordSection = `
       <div class="mb-3 p-1">
         <label for="password" class="form-label fw-bold">
-          Masukkan Password :
+          Enter Password :
         </label>
         <input type="password" name="password" class="form-control" id="password" minlength="6"/>
         <p></p>
         <label for="password-confirmation" class="form-label fw-bold">
-          Konfirmasi Password :
+          Confirm Password :
         </label>
         <input type="password" name="password_confirmation" class="form-control" id="password-confirmation" minlength="6"/>
       </div>
@@ -106,7 +106,7 @@ export async function GetPanel(request: Request, env: Env): Promise<Response> {
       <form class="form-group col-md-6 mx-auto px-4 py-4 border-top" method="post">
         <div class="mb-1 p-1">
           <label for="includes" class="form-label fw-bold">
-            Pilih Konfigurasi :
+            Select Configuration :
           </label>
           <div id="includes">
             <div class="form-check">
@@ -128,14 +128,14 @@ export async function GetPanel(request: Request, env: Env): Promise<Response> {
         </div>
         <div class="mb-1 p-1">
           <label for="max-configs" class="form-label fw-bold">
-            Jumlah Proxy :
+            Number of Proxies :
           </label>
           <input type="number" name="max" class="form-control" id="max-configs" value="${maxConfigs}" min="5"/>
           <div class="form-text"></div>
         </div>
         <div class="mb-1 p-1">
           <label for="type" class="form-label fw-bold">
-            Protokol Proxy :
+            Proxy Protocol :
           </label>
           <div id="type">
             <div class="form-check">
@@ -158,15 +158,15 @@ export async function GetPanel(request: Request, env: Env): Promise<Response> {
         </div>
         <!--div class="mb-1 p-1">
           <label for="clean-ip" class="form-label fw-bold">
-            IP Bagus
+            Good IP
           </label>
           <textarea rows="3" name="clean_ips" class="form-control" id="clean-ip">${cleanDomainIPs.join("\n")}</textarea>
           <div class="form-text">
-            Masukkan 1 IP / Baris.
+           Enter 1 IP / Line.
           </div>
           <div>
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ip-scanner-modal">
-              Cari
+              Search
             </button>
             <div class="modal fade" id="ip-scanner-modal" tabindex="-1" aria-labelledby="ip-scanner-modal-label" aria-hidden="true">
               <div class="modal-dialog modal-xl modal-dialog-scrollable">
@@ -190,7 +190,7 @@ export async function GetPanel(request: Request, env: Env): Promise<Response> {
           </label>
           <textarea rows="3" name="alpn_list" class="form-control" id="alpn-list">${alpnList.join("\n")}</textarea>
           <div class="form-text">
-            Masukkan 1 Item / Baris.
+            Enter 1 Item / Line
           </div>
         </div>
         <div class="mb-1 p-1">
@@ -199,29 +199,29 @@ export async function GetPanel(request: Request, env: Env): Promise<Response> {
           </label>
           <textarea rows="3" name="fp_list" class="form-control" id="fp-list">${fingerPrints.join("\n")}</textarea>
           <div class="form-text">
-            Masukkan 1 Item / Baris.
+            Enter 1 Item / Line.
           </div>
         </div>
         <div class="mb-1 p-1">
           <label for="providers" class="form-label fw-bold">
-            Agregator :
+            Aggregator:
           </label>
           <textarea rows="7" name="providers" class="form-control" id="providers">${providers.join("\n")}</textarea>
           <div class="form-text">
-            Masukkan 1 URL / Baris (Base64, Yaml, Raw)
+            Enter 1 URL / Line (Base64, Yaml, Raw)
           </div>
         </div>
         <div class="mb-1 p-1">
           <label for="configs" class="form-label fw-bold">
-            Pribadi :
+            Private :
           </label>
           <textarea rows="3" name="configs" class="form-control" id="configs">${configs.join("\n")}</textarea>
           <div class="form-text"> 
-            Masukkan 1 URL / Baris (Base64, Yaml, Raw)
+            Enter 1 URL / Line (Base64, Yaml, Raw)
           </div>
         </div>
         ${passwordSection}
-        <button type="submit" name="save" value="save" class="btn btn-primary">Simpan</button>
+        <button type="submit" name="save" value="save" class="btn btn-primary">Save</button>
         <button type="submit" name="reset" value="reset" class="btn btn-warning">Reset</button>
       </form>
     </body>
@@ -250,7 +250,7 @@ export async function GetPanel(request: Request, env: Env): Promise<Response> {
           <h2>BITS VPN - Cloudflare Workers</h2>
         </div>
         <div class="fs-6 text-center">
-          Simple Vless, Vmess & Trojan Agregator with Cloudflare Workers. Web Developed by <a href="https://bits.co.id" target="_blank" class="text-white">Nurul Imam</a> - <a href="https://bits.co.id" target="_blank" class="text-white">Banten IT Solutions</a>.
+          Simple Vless, Vmess & Trojan Aggregator with Cloudflare Workers. Web Developed by <a href="https://bits.co.id" target="_blank" class="text-white">Nurul Imam</a> - <a href="https://bits.co.id" target="_blank" class="text-white">Banten IT Solutions</a>.
         </div>
       </div>
       <div class="form-group col-md-6 mx-auto px-4 py-2">
@@ -277,10 +277,10 @@ export async function GetPanel(request: Request, env: Env): Promise<Response> {
       </div>
 
       <div class="form-group col-md-6 mx-auto mx-5 my-2 p-1 border bg-danger text-center">
-        <p>Variabel "settings" tidak ditemukan ! Silahkan buat namespace di Workers / KV ! Tambahkan variabel "settings" di pengaturan workers.</p>
+        <p>Variable 'settings' not found! Please create a namespace in Workers/KV! Add the 'settings' variable in the workers settings.</p>
       </div>
       <div class="form-group col-md-6 mx-auto mx-5 my-2 p-1 border bg-success text-white text-center">
-        <p>Anda bisa menggunakan BITS VPN tanpa BITS VPN Dashboard.</p>
+        <p>You can use BITS VPN without BITS VPN Dashboard.</p>
       </div>
   </body>
 </html>
