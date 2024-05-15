@@ -7,7 +7,7 @@ export async function GetLogin(request: Request, env: Env): Promise<Response> {
   let htmlMessage = ""
   const message = url.searchParams.get("message")
   if (message == "error") {
-    htmlMessage = `<div class="p-3 bg-danger text-white fw-bold text-center">Password Salah !!!</div>`
+    htmlMessage = `<div class="p-3 bg-danger text-white fw-bold text-center">Wrong Password!!!</div>`
   }
 
   const htmlContent = `
@@ -24,7 +24,7 @@ export async function GetLogin(request: Request, env: Env): Promise<Response> {
           <h2>BITS VPN - Cloudflare Workers</h2>
         </div>
         <div class="fs-6 text-center">
-          Simple Vless, Vmess & Trojan Agregator with Cloudflare Workers. Web Developed by <a href="https://bits.co.id" target="_blank" class="text-white">Nurul Imam</a> - <a href="https://bits.co.id" target="_blank" class="text-white">Banten IT Solutions</a>.
+          Simple Vless, Vmess & Trojan Aggregator with Cloudflare Workers. Web Developed by <a href="https://bits.co.id" target="_blank" class="text-white">Nurul Imam</a> - <a href="https://bits.co.id" target="_blank" class="text-white">Banten IT Solutions</a>.
         </div>
       </div>
       <div class="container">${htmlMessage}</div>
